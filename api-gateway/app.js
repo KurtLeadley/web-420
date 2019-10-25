@@ -24,6 +24,7 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 var indexRouter = require('./routes/index');
+// NEW - require the apiCatalog with has a GET and POST method associated with the user.js model
 var apiCatalog = require('./routes/api-catalog');
 
 var app = express();
