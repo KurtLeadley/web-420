@@ -20,11 +20,12 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 var indexRouter = require('./routes/index');
-// NEW - require the apiCatalog with has a GET and POST method associated with the user.js model
+// NEW - require the apiCatalog which has a GET and POST method associated with the user.js model
 var apiCatalog = require('./routes/api-catalog');
 
 var app = express();
@@ -42,8 +43,8 @@ app.set('view engine', 'ejs');
 
 // use statements
 app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
