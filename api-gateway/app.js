@@ -31,7 +31,7 @@ var apiCatalog = require('./routes/api-catalog');
 var app = express();
 
 // connect to our mongoose db
-mongoose.connect('mongodb+srv://admin:admin@buwebdev-cluster-1-klsvt.mongodb.net/admin', {
+mongoose.connect('mongodb+srv://admin:admin@buwebdev-cluster-1-klsvt.mongodb.net/ems', {
     promiseLibrary: require('bluebird')
 }).then ( () => console.log('connection successful'))
   .catch( (err) => console.error(err));
