@@ -1,5 +1,10 @@
 #!/usr/bin/env node
-
+/***********************************
+; Title:  authController.js
+; Author: Kurt Leadley, Richard Krasso
+; Date:   November 11, 2019
+; Description: port
+***************************************/
 /**
  * Module dependencies.
  */

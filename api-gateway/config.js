@@ -1,7 +1,7 @@
 /***********************************
 ; Title:  config.js
 ; Author: Kurt Leadley, Richard Krasso
-; Date:   25 October 2019
+; Date:    11 November 2019
 ; Description: API configuration file
 ***************************************/
 var config = {};

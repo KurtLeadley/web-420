@@ -1,7 +1,7 @@
 /***********************************
 ; Title:  app.js
 ; Author: Kurt Leadley, Richard Krasso
-; Date:   25 October 2019
+; Date:    11 November 2019
 ; Description: node, view engine and mongoose handlers
 ; NOTE: navigate to api-gateway in your command prompt and type these commands
 ; Enter: SET DEBUG=api-gateway:*
@@ -20,18 +20,19 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+// body parser is required for HTTP handling
 var bodyParser = require('body-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 var indexRouter = require('./routes/index');
-// NEW - require the apiCatalog which has a GET and POST method associated with the user.js model
+// require the apiCatalog which has a GET and POST method associated with the user.js model
 var apiCatalog = require('./routes/api-catalog');
 
 var app = express();
 
 // connect to our mongoose db
-mongoose.connect('mongodb+srv://admin:admin@buwebdev-cluster-1-klsvt.mongodb.net/ems', {
+mongoose.connect('mongodb+srv://admin:admin@buwebdev-cluster-1-klsvt.mongodb.net/api-gateway', {
     promiseLibrary: require('bluebird')
 }).then ( () => console.log('connection successful'))
   .catch( (err) => console.error(err));
@@ -48,6 +49,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// here are some resources to use
 app.use('/', indexRouter);
 app.use('/api', apiCatalog);
 // catch 404 and forward to error handler
