@@ -1,3 +1,9 @@
+/***********************************
+; Title:  index.js
+; Author: Kurt Leadley, Richard Krasso
+; Date:   16 November 2019
+; Description: Gets the home page
+***************************************/
 var express = require('express');
 var router = express.Router();
 
