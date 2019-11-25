@@ -1,7 +1,7 @@
 /***********************************
 ; Title:  user.js
 ; Author: Kurt Leadley, Richard Krasso
-; Date:   11 November 2019
+; Date:   25 November 2019
 ; Description: User model and schema
 ***************************************/
 /**
@@ -25,4 +25,9 @@ module.exports.add = (user, callback) => {
 module.exports.getById = (id, callback) => {
     var query = {_id: id};
     User.findById(query, callback);
+}
+// query to get user by email, note the slightly different syntax from the one above
+module.exports.getOne = (e, callback) => {
+  var query = {email : e};
+  User.findOne(query, callback);
 }
